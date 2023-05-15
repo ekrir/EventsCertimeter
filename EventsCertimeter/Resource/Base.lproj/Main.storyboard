@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Lista Eventi-->
+        <scene sceneID="Oh6-jS-KM8">
+            <objects>
+                <viewController storyboardIdentifier="ListaTabViewController" id="Bk7-Ax-NFu" customClass="EventListView" customModule="EventsCertimeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qbH-G6-Heb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K3E-sD-O5A">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rOC-pF-ayo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="K3E-sD-O5A" firstAttribute="top" secondItem="rOC-pF-ayo" secondAttribute="top" id="fXL-6a-Eri"/>
+                            <constraint firstItem="K3E-sD-O5A" firstAttribute="leading" secondItem="rOC-pF-ayo" secondAttribute="leading" id="g9D-YE-Nyc"/>
+                            <constraint firstItem="rOC-pF-ayo" firstAttribute="bottom" secondItem="K3E-sD-O5A" secondAttribute="bottom" id="oA7-xj-lFM"/>
+                            <constraint firstItem="rOC-pF-ayo" firstAttribute="trailing" secondItem="K3E-sD-O5A" secondAttribute="trailing" id="u1N-19-1Cd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Lista Eventi" id="idf-yu-DKp">
+                        <barButtonItem key="backBarButtonItem" title="indietro" id="Hll-F0-jsH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="Sy6-z0-WsI">
+                            <connections>
+                                <action selector="tapNewEvent:" destination="Bk7-Ax-NFu" id="cGm-Ls-Hd9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="EventsTableView" destination="K3E-sD-O5A" id="FlD-lI-1jr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aYd-K8-48g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3205" y="127"/>
+        </scene>
+        <!--Mappa degli Eventi-->
+        <scene sceneID="stW-63-yU7">
+            <objects>
+                <viewController storyboardIdentifier="MappaTabViewController" id="3Bv-g9-t2g" customClass="MappaTabView" customModule="EventsCertimeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H7x-Wd-pok">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjV-Ft-4Rf">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OKn-HF-r4f"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OKn-HF-r4f" firstAttribute="bottom" secondItem="jjV-Ft-4Rf" secondAttribute="bottom" id="T56-Wn-F1m"/>
+                            <constraint firstItem="jjV-Ft-4Rf" firstAttribute="leading" secondItem="OKn-HF-r4f" secondAttribute="leading" id="gmI-vf-DYH"/>
+                            <constraint firstItem="jjV-Ft-4Rf" firstAttribute="top" secondItem="OKn-HF-r4f" secondAttribute="top" id="ltJ-ey-nzD"/>
+                            <constraint firstItem="OKn-HF-r4f" firstAttribute="trailing" secondItem="jjV-Ft-4Rf" secondAttribute="trailing" id="sa2-UG-ok1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mappa degli Eventi" id="NPU-Ha-U7X">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="line.3.horizontal.decrease.circle" catalog="system" id="nCA-2U-fs5">
+                            <connections>
+                                <action selector="tapOnFiltra:" destination="3Bv-g9-t2g" id="tv5-AR-umf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="filtraTabBar" destination="nCA-2U-fs5" id="5Bm-lM-aWF"/>
+                        <outlet property="mappaView" destination="jjV-Ft-4Rf" id="cbJ-Pj-c8Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7qQ-qi-BcI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3204" y="-542"/>
+        </scene>
+        <!--Filtra-->
+        <scene sceneID="Td0-FV-nm0">
+            <objects>
+                <viewController storyboardIdentifier="FiltraViewController" hidesBottomBarWhenPushed="YES" id="TQb-b8-SvQ" customClass="FiltraView" customModule="EventsCertimeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B13-aD-8iv">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kDa-xR-BL6">
+                                <rect key="frame" x="15" y="79" width="363" height="119.33333333333331"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5ja-Yj-eyl">
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="34.333333333333336"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dn-8I-tpe">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="34.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="YGB-FJ-Otw">
+                                                <rect key="frame" x="10" y="0.0" width="294" height="34.333333333333336"/>
+                                                <locale key="locale" localeIdentifier="it"/>
+                                                <connections>
+                                                    <action selector="filtraVauleChangedDataTime:" destination="TQb-b8-SvQ" eventType="valueChanged" id="7UW-nh-6uQ"/>
+                                                </connections>
+                                            </datePicker>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="asfasddvs" translatesAutoresizingMaskIntoConstraints="NO" id="RsM-Yj-VdG">
+                                                <rect key="frame" x="314" y="0.0" width="51" height="34.333333333333336"/>
+                                                <connections>
+                                                    <action selector="filtraPerDataToggle:" destination="TQb-b8-SvQ" eventType="valueChanged" id="6wc-8O-6FD"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" id="40l-B4-2Io">
+                                        <rect key="frame" x="0.0" y="44.333333333333336" width="363" height="31.000000000000007"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I Miei Eventi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeA-kQ-y4Z">
+                                                <rect key="frame" x="0.0" y="0.0" width="304" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="asfasddvs" translatesAutoresizingMaskIntoConstraints="NO" id="xPA-cn-zPf">
+                                                <rect key="frame" x="314" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="filtraIMieiEventiToggle:" destination="TQb-b8-SvQ" eventType="valueChanged" id="YYh-XB-HtT"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                        <viewLayoutGuide key="safeArea" id="gqK-6d-emk"/>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Prezzo" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cOM-v4-FAK">
+                                        <rect key="frame" x="0.0" y="85.333333333333343" width="363" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                        <connections>
+                                            <action selector="filtraValueChangedPrezzo:" destination="TQb-b8-SvQ" eventType="editingDidEnd" id="o8t-bu-HXp"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VQk-Q3-3P7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kDa-xR-BL6" firstAttribute="leading" secondItem="VQk-Q3-3P7" secondAttribute="leading" constant="15" id="BIJ-cP-AYf"/>
+                            <constraint firstAttribute="trailing" secondItem="kDa-xR-BL6" secondAttribute="trailing" constant="15" id="iji-bN-GYy"/>
+                            <constraint firstItem="kDa-xR-BL6" firstAttribute="top" secondItem="VQk-Q3-3P7" secondAttribute="top" constant="20" id="zJZ-dV-6uB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filtra" id="YEq-pc-fZR">
+                        <barButtonItem key="backBarButtonItem" title="Indietro" id="jBQ-Mu-wDM"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZpE-Zi-wBc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4073" y="-542"/>
+        </scene>
+        <!--Tab Bar View-->
+        <scene sceneID="7x1-AT-h3H">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarViewStoryboard" id="Dop-l6-Ka2" customClass="TabBarView" customModule="EventsCertimeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="djd-e8-SPl">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0om-9C-PA5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2366" y="-198"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

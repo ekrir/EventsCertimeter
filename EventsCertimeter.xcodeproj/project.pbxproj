@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CABDEAE92A121A8C00E36271 /* FiltraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEAE82A121A8C00E36271 /* FiltraView.swift */; };
+		CABDEAEB2A12223C00E36271 /* NewEventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEAEA2A12223C00E36271 /* NewEventPresenter.swift */; };
+		CABDEAED2A12260B00E36271 /* NewEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABDEAEC2A12260B00E36271 /* NewEvent.storyboard */; };
+		CABDEAEF2A12275A00E36271 /* CompilaNuovoEvento.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEAEE2A12275A00E36271 /* CompilaNuovoEvento.swift */; };
+		CABDEAF12A123FAE00E36271 /* SelezionaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEAF02A123FAE00E36271 /* SelezionaDataView.swift */; };
+		CABDEAF32A125A1500E36271 /* SelezionaPosizioneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEAF22A125A1500E36271 /* SelezionaPosizioneView.swift */; };
+		CABDEAF52A125F5200E36271 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEAF42A125F5200E36271 /* QRCodeScannerView.swift */; };
 		CAC1AE1D2A0E210E001A13C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE1C2A0E210E001A13C9 /* AppDelegate.swift */; };
 		CAC1AE1F2A0E210E001A13C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE1E2A0E210E001A13C9 /* SceneDelegate.swift */; };
 		CAC1AE212A0E210E001A13C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE202A0E210E001A13C9 /* ViewController.swift */; };
@@ -17,6 +24,13 @@
 		CAC1AE372A0E2111001A13C9 /* EventsCertimeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE362A0E2111001A13C9 /* EventsCertimeterTests.swift */; };
 		CAC1AE412A0E2111001A13C9 /* EventsCertimeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE402A0E2111001A13C9 /* EventsCertimeterUITests.swift */; };
 		CAC1AE432A0E2111001A13C9 /* EventsCertimeterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE422A0E2111001A13C9 /* EventsCertimeterUITestsLaunchTests.swift */; };
+		CAC1AE512A0E6CF9001A13C9 /* EventListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAC1AE502A0E6CF9001A13C9 /* EventListTableCell.xib */; };
+		CAC1AE532A0E6D33001A13C9 /* EventListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE522A0E6D33001A13C9 /* EventListTableCell.swift */; };
+		CAC1AE552A0E7390001A13C9 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE542A0E7390001A13C9 /* EventListView.swift */; };
+		CAC1AE5B2A0E79D1001A13C9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE5A2A0E79D1001A13C9 /* TabBarView.swift */; };
+		CAC1AE5D2A0E7A1E001A13C9 /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE5C2A0E7A1E001A13C9 /* TabBarPresenter.swift */; };
+		CAC1AE5F2A0E9183001A13C9 /* testVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE5E2A0E9183001A13C9 /* testVC.swift */; };
+		CAC1AE612A0E9639001A13C9 /* MappaTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE602A0E9639001A13C9 /* MappaTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +51,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CABDEAE82A121A8C00E36271 /* FiltraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltraView.swift; sourceTree = "<group>"; };
+		CABDEAEA2A12223C00E36271 /* NewEventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventPresenter.swift; sourceTree = "<group>"; };
+		CABDEAEC2A12260B00E36271 /* NewEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEvent.storyboard; sourceTree = "<group>"; };
+		CABDEAEE2A12275A00E36271 /* CompilaNuovoEvento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilaNuovoEvento.swift; sourceTree = "<group>"; };
+		CABDEAF02A123FAE00E36271 /* SelezionaDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelezionaDataView.swift; sourceTree = "<group>"; };
+		CABDEAF22A125A1500E36271 /* SelezionaPosizioneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelezionaPosizioneView.swift; sourceTree = "<group>"; };
+		CABDEAF42A125F5200E36271 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerView.swift; sourceTree = "<group>"; };
 		CAC1AE192A0E210E001A13C9 /* EventsCertimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventsCertimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC1AE1C2A0E210E001A13C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAC1AE1E2A0E210E001A13C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +72,13 @@
 		CAC1AE3C2A0E2111001A13C9 /* EventsCertimeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventsCertimeterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC1AE402A0E2111001A13C9 /* EventsCertimeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCertimeterUITests.swift; sourceTree = "<group>"; };
 		CAC1AE422A0E2111001A13C9 /* EventsCertimeterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCertimeterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CAC1AE502A0E6CF9001A13C9 /* EventListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListTableCell.xib; sourceTree = "<group>"; };
+		CAC1AE522A0E6D33001A13C9 /* EventListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListTableCell.swift; sourceTree = "<group>"; };
+		CAC1AE542A0E7390001A13C9 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
+		CAC1AE5A2A0E79D1001A13C9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		CAC1AE5C2A0E7A1E001A13C9 /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
+		CAC1AE5E2A0E9183001A13C9 /* testVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVC.swift; sourceTree = "<group>"; };
+		CAC1AE602A0E9639001A13C9 /* MappaTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappaTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +132,14 @@
 				CAC1AE1C2A0E210E001A13C9 /* AppDelegate.swift */,
 				CAC1AE1E2A0E210E001A13C9 /* SceneDelegate.swift */,
 				CAC1AE202A0E210E001A13C9 /* ViewController.swift */,
-				CAC1AE222A0E210E001A13C9 /* Main.storyboard */,
+				CAC1AE4F2A0E6CA6001A13C9 /* Resource */,
 				CAC1AE282A0E2110001A13C9 /* Assets.xcassets */,
 				CAC1AE2A2A0E2110001A13C9 /* LaunchScreen.storyboard */,
 				CAC1AE2D2A0E2110001A13C9 /* Info.plist */,
 				CAC1AE252A0E210E001A13C9 /* EventsCertimeter.xcdatamodeld */,
+				CAC1AE562A0E751A001A13C9 /* View */,
+				CAC1AE592A0E7548001A13C9 /* Presenter */,
+				CAC1AE5E2A0E9183001A13C9 /* testVC.swift */,
 			);
 			path = EventsCertimeter;
 			sourceTree = "<group>";
@@ -128,6 +159,41 @@
 				CAC1AE422A0E2111001A13C9 /* EventsCertimeterUITestsLaunchTests.swift */,
 			);
 			path = EventsCertimeterUITests;
+			sourceTree = "<group>";
+		};
+		CAC1AE4F2A0E6CA6001A13C9 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CAC1AE222A0E210E001A13C9 /* Main.storyboard */,
+				CAC1AE502A0E6CF9001A13C9 /* EventListTableCell.xib */,
+				CAC1AE522A0E6D33001A13C9 /* EventListTableCell.swift */,
+				CABDEAEC2A12260B00E36271 /* NewEvent.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CAC1AE562A0E751A001A13C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CAC1AE542A0E7390001A13C9 /* EventListView.swift */,
+				CAC1AE5A2A0E79D1001A13C9 /* TabBarView.swift */,
+				CAC1AE602A0E9639001A13C9 /* MappaTabView.swift */,
+				CABDEAE82A121A8C00E36271 /* FiltraView.swift */,
+				CABDEAEE2A12275A00E36271 /* CompilaNuovoEvento.swift */,
+				CABDEAF02A123FAE00E36271 /* SelezionaDataView.swift */,
+				CABDEAF22A125A1500E36271 /* SelezionaPosizioneView.swift */,
+				CABDEAF42A125F5200E36271 /* QRCodeScannerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CAC1AE592A0E7548001A13C9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CAC1AE5C2A0E7A1E001A13C9 /* TabBarPresenter.swift */,
+				CABDEAEA2A12223C00E36271 /* NewEventPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +301,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC1AE2C2A0E2110001A13C9 /* LaunchScreen.storyboard in Resources */,
+				CAC1AE512A0E6CF9001A13C9 /* EventListTableCell.xib in Resources */,
 				CAC1AE292A0E2110001A13C9 /* Assets.xcassets in Resources */,
+				CABDEAED2A12260B00E36271 /* NewEvent.storyboard in Resources */,
 				CAC1AE242A0E210E001A13C9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,9 +330,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC1AE212A0E210E001A13C9 /* ViewController.swift in Sources */,
+				CAC1AE552A0E7390001A13C9 /* EventListView.swift in Sources */,
+				CAC1AE5B2A0E79D1001A13C9 /* TabBarView.swift in Sources */,
 				CAC1AE1D2A0E210E001A13C9 /* AppDelegate.swift in Sources */,
+				CABDEAF32A125A1500E36271 /* SelezionaPosizioneView.swift in Sources */,
+				CABDEAF52A125F5200E36271 /* QRCodeScannerView.swift in Sources */,
+				CAC1AE612A0E9639001A13C9 /* MappaTabView.swift in Sources */,
+				CABDEAEF2A12275A00E36271 /* CompilaNuovoEvento.swift in Sources */,
+				CAC1AE532A0E6D33001A13C9 /* EventListTableCell.swift in Sources */,
+				CABDEAEB2A12223C00E36271 /* NewEventPresenter.swift in Sources */,
+				CAC1AE5F2A0E9183001A13C9 /* testVC.swift in Sources */,
+				CABDEAE92A121A8C00E36271 /* FiltraView.swift in Sources */,
 				CAC1AE272A0E210E001A13C9 /* EventsCertimeter.xcdatamodeld in Sources */,
 				CAC1AE1F2A0E210E001A13C9 /* SceneDelegate.swift in Sources */,
+				CAC1AE5D2A0E7A1E001A13C9 /* TabBarPresenter.swift in Sources */,
+				CABDEAF12A123FAE00E36271 /* SelezionaDataView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
