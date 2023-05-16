@@ -149,11 +149,24 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGq-4O-0MC">
+                                <rect key="frame" x="146" y="719" width="100" height="34.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="RpI-nC-dY9"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Applica" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="applicaFilterPressed:" destination="TQb-b8-SvQ" eventType="touchUpInside" id="ti1-mJ-VbV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VQk-Q3-3P7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kDa-xR-BL6" firstAttribute="leading" secondItem="VQk-Q3-3P7" secondAttribute="leading" constant="15" id="BIJ-cP-AYf"/>
+                            <constraint firstItem="CGq-4O-0MC" firstAttribute="centerX" secondItem="VQk-Q3-3P7" secondAttribute="centerX" id="QeW-O4-BpO"/>
+                            <constraint firstItem="VQk-Q3-3P7" firstAttribute="bottom" secondItem="CGq-4O-0MC" secondAttribute="bottom" constant="50" id="fdT-3l-hHm"/>
                             <constraint firstAttribute="trailing" secondItem="kDa-xR-BL6" secondAttribute="trailing" constant="15" id="iji-bN-GYy"/>
                             <constraint firstItem="kDa-xR-BL6" firstAttribute="top" secondItem="VQk-Q3-3P7" secondAttribute="top" constant="20" id="zJZ-dV-6uB"/>
                         </constraints>

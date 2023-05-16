@@ -85,8 +85,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         evento1.luogo = "via aaa 27"
         evento1.prezzo = 5.00
         evento1.visibile = true
-        evento1.latitudine = 45.089739
-        evento1.longitudine = 7.628201
+        evento1.latitudine = 45.087600
+        evento1.longitudine = 7.657611
         
         let evento2 = Evento(context: context)
         evento2.nomeEvento = "cinema con gli amici"

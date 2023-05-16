@@ -24,6 +24,13 @@ class MappaTabView: UIViewController {
     
     var delegate: MappaTabViewDelegate?
     
+    var listaAnnotazioni: [MyPointAnnotation] = []
+    
+    func configure(annotations:[MyPointAnnotation]){
+        listaAnnotazioni = annotations
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +43,10 @@ class MappaTabView: UIViewController {
 
         mappaView.showsUserLocation = true
         mappaView.userTrackingMode = .follow
+        mappaView.delegate = self
+        
+            mappaView.addAnnotations(listaAnnotazioni)
+        
         
     }
     
@@ -67,4 +78,36 @@ extension MappaTabView: CLLocationManagerDelegate{
             }
         }
     }
+}
+
+extension MappaTabView: MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var annotationview = mapView.dequeueReusableAnnotationView(withIdentifier: "myAnnotation") as? MKMarkerAnnotationView
+        
+        if annotationview == nil {
+            annotationview = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "myAnnotation")
+        }else{
+            annotationview?.annotation = annotation
+        }
+        if let annotation = annotation as? MyPointAnnotation{
+            annotationview?.markerTintColor = annotation.pinTintColor
+        }
+        return annotationview
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print(view.annotation?.title)
+        print((view.annotation as? MyPointAnnotation)?.pinTintColor == .blue)
+    }
+}
+
+
+class MyPointAnnotation : MKPointAnnotation {
+    internal init(pinTintColor: UIColor? = nil, evento: Evento) {
+        self.pinTintColor = pinTintColor
+        self.evento = evento
+    }
+    
+    var pinTintColor: UIColor?
+    var evento: Evento
 }

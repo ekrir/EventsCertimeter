@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import MapKit
 import CoreData
+import CoreLocation
 
 struct TabBarItem {
     let title: String
@@ -20,9 +21,15 @@ struct TabBarItem {
 class TabBarPresenter: NSObject {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let context = PersistenceController.shared.container.viewContext
+    
+    var iMieiEventi: [Evento] = []
+    var altriEventi: [Evento] = []
     //MARK: - TabBar
     func start(_ window: UIWindow){
         
+        iMieiEventi = getMyEvent()
+        altriEventi = getOtherEvent().filter({value in
+            return value.visibile && !iMieiEventi.contains(where: {$0.id == value.id}) })
         
         let tabBarView = storyboard.instantiateViewController(identifier: "TabBarViewStoryboard") as TabBarView
         //        var tabBarView = TabBarView()
@@ -57,16 +64,13 @@ class TabBarPresenter: NSObject {
     fileprivate func getMapVc() -> UIViewController{
         let vc = storyboard.instantiateViewController(identifier: "MappaTabViewController") as? MappaTabView
         vc?.delegate = self
+        vc?.configure(annotations: getListaAnnotazioni())
         return vc ?? UIViewController()
         
     }
     fileprivate func getEventListVC() -> UIViewController{
         let vc = storyboard.instantiateViewController(identifier: "ListaTabViewController") as? EventListView
         vc?.delegate = self
-        let iMieiEventi = getMyEvent()
-        let altriEventi = getOtherEvent().filter({value in
-            return value.visibile && !iMieiEventi.contains(where: {$0.id == value.id}) })
-        print(altriEventi)
         vc?.configure(myEvents: iMieiEventi, otherEvents: altriEventi)
         return vc ?? UIViewController()
     }
@@ -92,6 +96,28 @@ class TabBarPresenter: NSObject {
 
     }
     
+    func getListaAnnotazioni() -> [MyPointAnnotation] {
+        var ann: [MyPointAnnotation] = []
+        for value in iMieiEventi{
+            var annTemp = MyPointAnnotation( evento: value)
+            annTemp.coordinate = CLLocationCoordinate2D(latitude: value.latitudine, longitude: value.longitudine)
+            annTemp.title = value.nomeEvento
+            annTemp.pinTintColor = .green
+            ann.append(annTemp)
+        }
+        
+        for value in altriEventi{
+            var annTemp = MyPointAnnotation( evento: value)
+            annTemp.coordinate = CLLocationCoordinate2D(latitude: value.latitudine, longitude: value.longitudine)
+            annTemp.title = value.nomeEvento
+            annTemp.pinTintColor = .blue
+            ann.append(annTemp)
+        }
+        
+        
+        return ann
+    }
+    
 }
 
 extension TabBarPresenter: UITabBarControllerDelegate{
@@ -108,17 +134,6 @@ extension TabBarPresenter: MappaTabViewDelegate{
     }
 }
 
-
-
-extension TabBarPresenter: MKMapViewDelegate{
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        <#code#>
-//    }
-    
-//    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView(annotation: MKAnnotation?, reuseIdentifier: <#T##String?#>)]) {
-//        <#code#>
-//    }
-}
 
 
 //MKAnnotationView
