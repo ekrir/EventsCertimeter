@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Evento" representedClassName="Evento" syncable="YES" codeGenerationType="class">
+    <entity name="Evento" representedClassName="Evento" syncable="YES">
         <attribute name="dataFine" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dataInizio" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="descrizione" optional="YES" attributeType="String"/>
@@ -10,5 +10,12 @@
         <attribute name="nomeEvento" optional="YES" attributeType="String"/>
         <attribute name="prezzo" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="visibile" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="fromPersona" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Persona" inverseName="toEvento" inverseEntity="Persona"/>
+    </entity>
+    <entity name="Persona" representedClassName="Persona" syncable="YES">
+        <attribute name="nomeCompleto" optional="YES" attributeType="String"/>
+        <relationship name="fromPersona" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Persona" inverseName="toPersona" inverseEntity="Persona"/>
+        <relationship name="toEvento" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Evento" inverseName="fromPersona" inverseEntity="Evento"/>
+        <relationship name="toPersona" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Persona" inverseName="fromPersona" inverseEntity="Persona"/>
     </entity>
 </model>

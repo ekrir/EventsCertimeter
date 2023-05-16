@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA3AF82F2A137D650036BD5E /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3AF82E2A137D650036BD5E /* Persistance.swift */; };
+		CA3AF8312A1394C40036BD5E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3AF8302A1394C40036BD5E /* Extensions.swift */; };
+		CAB4C8EB2A13782D00EE4D48 /* Evento+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4C8E72A13782D00EE4D48 /* Evento+CoreDataClass.swift */; };
+		CAB4C8EC2A13782D00EE4D48 /* Evento+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4C8E82A13782D00EE4D48 /* Evento+CoreDataProperties.swift */; };
+		CAB4C8ED2A13782D00EE4D48 /* Persona+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4C8E92A13782D00EE4D48 /* Persona+CoreDataClass.swift */; };
+		CAB4C8EE2A13782D00EE4D48 /* Persona+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4C8EA2A13782D00EE4D48 /* Persona+CoreDataProperties.swift */; };
 		CABDEAE92A121A8C00E36271 /* FiltraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEAE82A121A8C00E36271 /* FiltraView.swift */; };
 		CABDEAEB2A12223C00E36271 /* NewEventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEAEA2A12223C00E36271 /* NewEventPresenter.swift */; };
 		CABDEAED2A12260B00E36271 /* NewEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABDEAEC2A12260B00E36271 /* NewEvent.storyboard */; };
@@ -51,6 +57,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA3AF82E2A137D650036BD5E /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		CA3AF8302A1394C40036BD5E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CAB4C8E72A13782D00EE4D48 /* Evento+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Evento+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CAB4C8E82A13782D00EE4D48 /* Evento+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Evento+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CAB4C8E92A13782D00EE4D48 /* Persona+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persona+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CAB4C8EA2A13782D00EE4D48 /* Persona+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persona+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CABDEAE82A121A8C00E36271 /* FiltraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltraView.swift; sourceTree = "<group>"; };
 		CABDEAEA2A12223C00E36271 /* NewEventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventPresenter.swift; sourceTree = "<group>"; };
 		CABDEAEC2A12260B00E36271 /* NewEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEvent.storyboard; sourceTree = "<group>"; };
@@ -109,6 +121,12 @@
 		CAC1AE102A0E210E001A13C9 = {
 			isa = PBXGroup;
 			children = (
+				CA3AF8302A1394C40036BD5E /* Extensions.swift */,
+				CA3AF82E2A137D650036BD5E /* Persistance.swift */,
+				CAB4C8E72A13782D00EE4D48 /* Evento+CoreDataClass.swift */,
+				CAB4C8E82A13782D00EE4D48 /* Evento+CoreDataProperties.swift */,
+				CAB4C8E92A13782D00EE4D48 /* Persona+CoreDataClass.swift */,
+				CAB4C8EA2A13782D00EE4D48 /* Persona+CoreDataProperties.swift */,
 				CAC1AE1B2A0E210E001A13C9 /* EventsCertimeter */,
 				CAC1AE352A0E2111001A13C9 /* EventsCertimeterTests */,
 				CAC1AE3F2A0E2111001A13C9 /* EventsCertimeterUITests */,
@@ -333,15 +351,21 @@
 				CAC1AE552A0E7390001A13C9 /* EventListView.swift in Sources */,
 				CAC1AE5B2A0E79D1001A13C9 /* TabBarView.swift in Sources */,
 				CAC1AE1D2A0E210E001A13C9 /* AppDelegate.swift in Sources */,
+				CAB4C8ED2A13782D00EE4D48 /* Persona+CoreDataClass.swift in Sources */,
 				CABDEAF32A125A1500E36271 /* SelezionaPosizioneView.swift in Sources */,
 				CABDEAF52A125F5200E36271 /* QRCodeScannerView.swift in Sources */,
 				CAC1AE612A0E9639001A13C9 /* MappaTabView.swift in Sources */,
+				CAB4C8EE2A13782D00EE4D48 /* Persona+CoreDataProperties.swift in Sources */,
+				CA3AF8312A1394C40036BD5E /* Extensions.swift in Sources */,
 				CABDEAEF2A12275A00E36271 /* CompilaNuovoEvento.swift in Sources */,
 				CAC1AE532A0E6D33001A13C9 /* EventListTableCell.swift in Sources */,
 				CABDEAEB2A12223C00E36271 /* NewEventPresenter.swift in Sources */,
+				CAB4C8EC2A13782D00EE4D48 /* Evento+CoreDataProperties.swift in Sources */,
 				CAC1AE5F2A0E9183001A13C9 /* testVC.swift in Sources */,
+				CA3AF82F2A137D650036BD5E /* Persistance.swift in Sources */,
 				CABDEAE92A121A8C00E36271 /* FiltraView.swift in Sources */,
 				CAC1AE272A0E210E001A13C9 /* EventsCertimeter.xcdatamodeld in Sources */,
+				CAB4C8EB2A13782D00EE4D48 /* Evento+CoreDataClass.swift in Sources */,
 				CAC1AE1F2A0E210E001A13C9 /* SceneDelegate.swift in Sources */,
 				CAC1AE5D2A0E7A1E001A13C9 /* TabBarPresenter.swift in Sources */,
 				CABDEAF12A123FAE00E36271 /* SelezionaDataView.swift in Sources */,

@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>localizzazion per mappa</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>location per mappa </string>
+	<key>NSLocationUsageDescription</key>
+	<string>location per mappa </string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>location per la mappa </string>
 	<key>NSCameraUsageDescription</key>
 	<string>ci serve la camera per il qr code </string>
 	<key>UIApplicationSceneManifest</key>

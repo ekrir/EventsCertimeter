@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import MapKit
+import CoreData
 
 struct TabBarItem {
     let title: String
@@ -18,7 +19,8 @@ struct TabBarItem {
 
 class TabBarPresenter: NSObject {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    
+    let context = PersistenceController.shared.container.viewContext
+    //MARK: - TabBar
     func start(_ window: UIWindow){
         
         
@@ -51,7 +53,7 @@ class TabBarPresenter: NSObject {
         vc.append(.init(title: "Lista degli Eventi", tabBarTitle: "Lista", tabBarImage: UIImage(systemName: "list.bullet") ?? UIImage(), viewController: getEventListVC()))
         return vc
     }
-    
+    //MARK: - inizializzazione pagine della tabBar
     fileprivate func getMapVc() -> UIViewController{
         let vc = storyboard.instantiateViewController(identifier: "MappaTabViewController") as? MappaTabView
         vc?.delegate = self
@@ -61,17 +63,43 @@ class TabBarPresenter: NSObject {
     fileprivate func getEventListVC() -> UIViewController{
         let vc = storyboard.instantiateViewController(identifier: "ListaTabViewController") as? EventListView
         vc?.delegate = self
+        let iMieiEventi = getMyEvent()
+        let altriEventi = getOtherEvent().filter({value in
+            return value.visibile && !iMieiEventi.contains(where: {$0.id == value.id}) })
+        print(altriEventi)
+        vc?.configure(myEvents: iMieiEventi, otherEvents: altriEventi)
         return vc ?? UIViewController()
     }
+    
+    func getMyEvent() -> [Evento]{
+        var fetchRequestEventFromPerona: NSFetchRequest<Persona>
+        fetchRequestEventFromPerona = Persona.fetchRequest()
+        fetchRequestEventFromPerona.predicate = NSPredicate(format: "nomeCompleto == %@", "Gianluca Ferrosi")
+        let persona = try? context.fetch(fetchRequestEventFromPerona)
+        let firstPersona = persona?.first
+        
+        var fetchRequestEventFromRelationship: NSFetchRequest<Evento>
+        fetchRequestEventFromRelationship = Evento.fetchRequest()
+        fetchRequestEventFromRelationship.predicate = NSPredicate(format: "(ANY fromPersona == %@)", firstPersona!)
+        return (try? context.fetch(fetchRequestEventFromRelationship)) ?? []
+        
+    }
+            
+    func getOtherEvent() -> [Evento]{
+        var fetchRequestEvents: NSFetchRequest<Evento>
+        fetchRequestEvents = Evento.fetchRequest()
+        return (try? context.fetch(fetchRequestEvents)) ?? []
+
+    }
+    
 }
 
 extension TabBarPresenter: UITabBarControllerDelegate{
     
 }
-
+//MARK: - delegati mappa
 extension TabBarPresenter: MappaTabViewDelegate{
     func didTapOnFiltra(_ navigationController: UINavigationController) {
-        print("premito filra 2")
         
         let vc = storyboard.instantiateViewController(identifier: "FiltraViewController")
         vc.title = "Filtra"
@@ -80,21 +108,28 @@ extension TabBarPresenter: MappaTabViewDelegate{
     }
 }
 
+
+
+extension TabBarPresenter: MKMapViewDelegate{
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        <#code#>
+//    }
+    
+//    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView(annotation: MKAnnotation?, reuseIdentifier: <#T##String?#>)]) {
+//        <#code#>
+//    }
+}
+
+
+//MKAnnotationView
+
+
+
+//MARK: - delegati lista
 extension TabBarPresenter: EventListViewDelegate{
     func didTapOnNewEvent(navController: UINavigationController) {
         let newEventPresenter = NewEventPresenter()
         newEventPresenter.start(navcontroller: navController)
     }
-    
-    
 }
 
-//extension TabBarPresenter: MKMapViewDelegate{
-//    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView(annotation: MKAnnotation?, reuseIdentifier: <#T##String?#>)]) {
-//        <#code#>
-//    }
-//}
-//
-//
-//MKAnnotationView
-//

@@ -38,12 +38,10 @@ class CompilaNuovoEvento: UIViewController {
     
     
     @IBAction func tapOnSalva(_ sender: Any) {
-        print("tap on salva")
         delegate?.didTapOnSalva()
     }
     @IBAction func tapOnQRCode(_ sender: Any) {
         delegate?.didTapOnQRCode(self.navigationController ?? UINavigationController())
-        print("tapon qr")
     }
     @IBAction func tapOnCercaPosizione(_ sender: Any) {
         delegate?.didTapOnCercaPosizione(self.navigationController ?? UINavigationController())

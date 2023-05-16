@@ -62,7 +62,6 @@ class QRCodeScannerView: UIViewController {
                 qrcodeFrameView?.frame = barcodeObject!.bounds
                 
                 if let mo = metadataObject.stringValue {
-                    print(mo)
                 }
             }
         }

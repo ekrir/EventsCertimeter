@@ -26,7 +26,6 @@ class NewEventPresenter{
 
 extension NewEventPresenter: CompilaNuovoEventoDelegate{
     func didTapOnQRCode(_ navController: UINavigationController) {
-        print("qrcode")
         let vc = storyboard.instantiateViewController(withIdentifier: "QRCodeScannerView") as? QRCodeScannerView
         vc?.title = "scanneriza il qr"
         navController.pushViewController(vc ?? UIViewController(), animated: true)
@@ -36,11 +35,9 @@ extension NewEventPresenter: CompilaNuovoEventoDelegate{
         let vc = storyboard.instantiateViewController(withIdentifier: "SelezionaPosizioneView") as? SelezionaPosizioneView
         navController.pushViewController(vc ?? UIViewController(), animated: true)
         print(vc != nil )
-        print("posizione")
     }
     
     func didTapOnSalva() {
-        print("salva")
     }
     
     func didTapOnSelezionaDataInizio(_ viewController: UIViewController) {
@@ -51,13 +48,11 @@ extension NewEventPresenter: CompilaNuovoEventoDelegate{
         selezionadata.preferredContentSize.height = 200
 
         viewController.present(selezionadata, animated: true)
-        print("inizio")
     }
     
     func didTapOnSelezionaDataFine(_ navController: UINavigationController) {
         let vc = storyboard.instantiateViewController(withIdentifier: "SelezionaDataView") as? SelezionaDataView
         navController.pushViewController(vc ?? UIViewController(), animated: true)
-        print("fine")
     }
 }
 

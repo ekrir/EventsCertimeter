@@ -3,4 +3,149 @@
    uuid = "C8185A0C-1843-4AB0-A952-6222182EB193"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02D0B356-1997-48BC-A830-050908D375F9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EventsCertimeter/View/EventListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "02D0B356-1997-48BC-A830-050908D375F9 - 8f468b954f45b5a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EventsCertimeter.EventListView.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "EventsCertimeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/micheldipietro/Desktop/esercizi%20vari/git/EventsCertimeter/EventsCertimeter/View/EventListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "02D0B356-1997-48BC-A830-050908D375F9 - 8f468b954f45b5a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EventsCertimeter.EventListView.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "EventsCertimeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/micheldipietro/Desktop/esercizi%20vari/git/EventsCertimeter/EventsCertimeter/View/EventListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  uuid = "02D0B356-1997-48BC-A830-050908D375F9 - 8f468b954f45b5a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EventsCertimeter.EventListView.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "EventsCertimeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/micheldipietro/Desktop/esercizi%20vari/git/EventsCertimeter/EventsCertimeter/View/EventListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "132">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "650BB298-C1B4-4D06-BCF4-A2CDA6B58206"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EventsCertimeter/View/EventListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "configure(myEvents:otherEvents:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC0C6357-5200-4B13-84A1-6C8C57C8DA90"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EventsCertimeter/Presenter/TabBarPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "getEventListVC()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC610C66-97F3-4B92-8551-F658B23D9801"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EventsCertimeter/Presenter/TabBarPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "getMyEvent()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FC610C66-97F3-4B92-8551-F658B23D9801 - 647634ef7795b4dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EventsCertimeter.TabBarPresenter.getMyEvent() -&gt; Swift.Array&lt;EventsCertimeter.Evento&gt;"
+                  moduleName = "EventsCertimeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/micheldipietro/Desktop/esercizi%20vari/git/EventsCertimeter/EventsCertimeter/Presenter/TabBarPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "732">
+               </Location>
+               <Location
+                  uuid = "FC610C66-97F3-4B92-8551-F658B23D9801 - 647634ef7795b4fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EventsCertimeter.TabBarPresenter.getMyEvent() -&gt; Swift.Array&lt;EventsCertimeter.Evento&gt;"
+                  moduleName = "EventsCertimeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/micheldipietro/Desktop/esercizi%20vari/git/EventsCertimeter/EventsCertimeter/Presenter/TabBarPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "696">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

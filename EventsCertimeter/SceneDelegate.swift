@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,9 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let win = UIWindow(windowScene: windowScene)
-//        let vc = testVC()
-//        let navigation = UINavigationController(rootViewController: vc)
-//        win.rootViewController = navigation
+        mockDati()
         self.window = win
         let tabBarP = TabBarPresenter()
         tabBarP.start(win)
@@ -57,6 +56,59 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
+    func mockDati(){
+        let context = PersistenceController.shared.container.viewContext
+        let requestEventi = Evento.request()
+        let deleteRequestEventi = NSBatchDeleteRequest(fetchRequest: requestEventi)
+        let requestPersone = Persona.request()
+        let deleteRequestPersone = NSBatchDeleteRequest(fetchRequest: requestPersone)
+        
+        do {
+            guard let persistentStoreCoordinator =
+                    context.persistentStoreCoordinator else { return }
+            
+            try persistentStoreCoordinator
+                .execute(deleteRequestEventi, with: context)
+            try persistentStoreCoordinator
+                .execute(deleteRequestPersone, with: context)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    
+        
+        let evento1 = Evento(context: context)
+        evento1.nomeEvento = "Sconti dal doc"
+        evento1.dataInizio = Date().mezzanotte
+        evento1.dataFine = Calendar.current.date(byAdding: .day, value: 1, to: Date().mezzanotte)
+        evento1.descrizione = "solo per oggi sconti dal doc"
+        evento1.luogo = "via aaa 27"
+        evento1.prezzo = 5.00
+        evento1.visibile = true
+        evento1.latitudine = 45.089739
+        evento1.longitudine = 7.628201
+        
+        let evento2 = Evento(context: context)
+        evento2.nomeEvento = "cinema con gli amici"
+        evento2.dataInizio = Calendar.current.date(byAdding: .hour, value: 20, to: Date().mezzanotte)
+        evento2.dataFine = Calendar.current.date(byAdding: .hour, value: 23, to: Date().mezzanotte)
+        evento2.descrizione = "solo per oggi sconti dal doc"
+        evento2.luogo = "via bbb 42"
+        evento2.prezzo = 11.00
+        evento2.visibile = false
+        evento2.latitudine = 45.087011
+        evento2.longitudine = 7.667893
+        
+        let persona1 = Persona(context: context)
+        persona1.nomeCompleto = "Gianluca Ferrosi"
+        persona1.toEvento = [evento2]
+        
+        let persona2 = Persona(context: context)
+        persona2.nomeCompleto = "Pietro Nuset"
+        
+        try? context.save()
+    }
+    
 
 }
 
