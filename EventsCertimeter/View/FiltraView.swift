@@ -7,42 +7,79 @@
 
 import UIKit
 protocol FiltraViewDelegate {
-    
+    func didTapOnApplica()
 }
 
 class FiltraView: UIViewController {
-  
+    @IBOutlet weak var prezzoTextField: UITextField!
+    
+    @IBOutlet weak var altriEventiToggle: UISwitch!
+    @IBOutlet weak var iMieiEventiToggle: UISwitch!
+    @IBOutlet weak var dataToggle: UISwitch!
+    @IBOutlet weak var dataPicker: UIDatePicker!
     var delegate: FiltraViewDelegate?
     
     var filtraClass = Filtra.shared
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        prezzoTextField.returnKeyType = .done
+        if let prezzo = filtraClass.prezzo{
+            self.prezzoTextField.text = String(prezzo)
+        }
+        self.prezzoTextField.text = nil
+        self.altriEventiToggle.isOn = filtraClass.altriEventiToggle
+        self.dataToggle.isOn = filtraClass.dataToggleisActive
+        self.iMieiEventiToggle.isOn = filtraClass.iMieiEventiToggle
+        self.dataPicker.date = filtraClass.dataValue
+        self.dataPicker.minimumDate = Date()
+    }
+    
     @IBAction func filtraPerDataToggle(_ sender: UISwitch) {
+        filtraClass.dataToggleisActive = sender.isOn
     }
     
     @IBAction func filtraIMieiEventiToggle(_ sender: UISwitch) {
+        filtraClass.iMieiEventiToggle = sender.isOn
     }
     @IBAction func filtraVauleChangedDataTime(_ sender: UIDatePicker) {
+        filtraClass.dataValue = sender.date
     }
     @IBAction func filtraValueChangedPrezzo(_ sender: UITextField) {
+        if let prezzoNuovo = Double(sender.text ?? "0.0"), prezzoNuovo != 0.0{
+            filtraClass.prezzo = prezzoNuovo
+        }else {
+            filtraClass.prezzo = nil
+        }
     }
     @IBAction func applicaFilterPressed(_ sender: Any) {
         
+        
+        self.navigationController?.popViewController(animated: true)
+        delegate?.didTapOnApplica()
+    }
+    @IBAction func filtraAltriEventiToggle(_ sender: UISwitch) {
+        filtraClass.altriEventiToggle = sender.isOn
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        
-    }
+
 
 }
 
 
 class Filtra {
     static let shared = Filtra()
-    var dataToggleisActive: Bool = false
-    var dataValue = Data()
-    var iMieiEventiToggle = true
-    var Prezzo: Double? = nil
+    var dataToggleisActive: Bool
+    var dataValue: Date
+    var iMieiEventiToggle: Bool
+    var altriEventiToggle: Bool
+    var prezzo: Double?
+    
+    init(dataToggleisActive: Bool = false, dataValue: Date = Date(), iMieiEventiToggle: Bool = true, altriEventiToggle: Bool = true, prezzo: Double? = nil) {
+        self.dataToggleisActive = dataToggleisActive
+        self.dataValue = dataValue
+        self.iMieiEventiToggle = iMieiEventiToggle
+        self.altriEventiToggle = altriEventiToggle
+        self.prezzo = prezzo
+    }
 }

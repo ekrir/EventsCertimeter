@@ -24,8 +24,12 @@ class TabBarPresenter: NSObject {
     
     var iMieiEventi: [Evento] = []
     var altriEventi: [Evento] = []
+    
+    private var mapViewController = UIViewController()
+    private var tableViewControlelr = UIViewController()
     //MARK: - TabBar
     func start(_ window: UIWindow){
+        
         
         iMieiEventi = getMyEvent()
         altriEventi = getOtherEvent().filter({value in
@@ -36,6 +40,9 @@ class TabBarPresenter: NSObject {
         
         
         tabBarView.delegate = self
+        
+        mapViewController = getMapVc()
+        tableViewControlelr = getEventListVC()
         
         let vc = getViewController()
         tabBarView.setViewControllers(vc.compactMap({
@@ -56,8 +63,8 @@ class TabBarPresenter: NSObject {
     fileprivate func getViewController()-> [TabBarItem]{
         var vc: [TabBarItem] = []
         
-        vc.append(.init(title: "Mappa degli Eventi", tabBarTitle: "Mappa", tabBarImage: UIImage(systemName: "map") ?? UIImage(), viewController: getMapVc()))
-        vc.append(.init(title: "Lista degli Eventi", tabBarTitle: "Lista", tabBarImage: UIImage(systemName: "list.bullet") ?? UIImage(), viewController: getEventListVC()))
+        vc.append(.init(title: "Mappa degli Eventi", tabBarTitle: "Mappa", tabBarImage: UIImage(systemName: "map") ?? UIImage(), viewController: mapViewController))
+        vc.append(.init(title: "Lista degli Eventi", tabBarTitle: "Lista", tabBarImage: UIImage(systemName: "list.bullet") ?? UIImage(), viewController: tableViewControlelr))
         return vc
     }
     //MARK: - inizializzazione pagine della tabBar
@@ -127,8 +134,10 @@ extension TabBarPresenter: UITabBarControllerDelegate{
 extension TabBarPresenter: MappaTabViewDelegate{
     func didTapOnFiltra(_ navigationController: UINavigationController) {
         
-        let vc = storyboard.instantiateViewController(identifier: "FiltraViewController")
+        let vc = storyboard.instantiateViewController(identifier: "FiltraViewController") as? FiltraView
+        guard let vc = vc else {return}
         vc.title = "Filtra"
+        vc.delegate = self
         navigationController.pushViewController(vc, animated: true)
         
     }
@@ -148,3 +157,59 @@ extension TabBarPresenter: EventListViewDelegate{
     }
 }
 
+//MARK: - delegati filtr
+
+extension TabBarPresenter: FiltraViewDelegate{
+    func didTapOnApplica() {
+        
+        let filtra = Filtra.shared
+        var listaRisultanteiMieiEventi: [Evento] = []
+        var listaRisultanteAltriEventi: [Evento] = []
+
+        if filtra.iMieiEventiToggle{
+            listaRisultanteiMieiEventi.append(contentsOf: iMieiEventi)
+        }
+        
+        if filtra.altriEventiToggle{
+            listaRisultanteAltriEventi.append(contentsOf: altriEventi)
+        }
+        
+        if filtra.dataToggleisActive{
+            listaRisultanteiMieiEventi = listaRisultanteiMieiEventi.filter({$0.dataInizio <= filtra.dataValue && $0.dataFine >= filtra.dataValue})
+            listaRisultanteAltriEventi = listaRisultanteAltriEventi.filter({$0.dataInizio <= filtra.dataValue && $0.dataFine >= filtra.dataValue})
+
+        }
+        
+        if let prezzo = filtra.prezzo{
+            listaRisultanteiMieiEventi = listaRisultanteiMieiEventi.filter({$0.prezzo <= prezzo})
+            listaRisultanteAltriEventi = listaRisultanteAltriEventi.filter({$0.prezzo <= prezzo})
+
+        }
+        
+        
+        guard let mappaView = mapViewController as? MappaTabView else {return}
+        mappaView.aggiornaAnnotazioni(annotations: getListaAnnotazioni(iMieiEventi: listaRisultanteiMieiEventi, altriEventi: listaRisultanteAltriEventi))
+    }
+    
+    func getListaAnnotazioni(iMieiEventi: [Evento], altriEventi: [Evento]) -> [MyPointAnnotation] {
+        var ann: [MyPointAnnotation] = []
+        for value in iMieiEventi{
+            var annTemp = MyPointAnnotation( evento: value)
+            annTemp.coordinate = CLLocationCoordinate2D(latitude: value.latitudine, longitude: value.longitudine)
+            annTemp.title = value.nomeEvento
+            annTemp.pinTintColor = .green
+            ann.append(annTemp)
+        }
+        
+        for value in altriEventi{
+            var annTemp = MyPointAnnotation( evento: value)
+            annTemp.coordinate = CLLocationCoordinate2D(latitude: value.latitudine, longitude: value.longitudine)
+            annTemp.title = value.nomeEvento
+            annTemp.pinTintColor = .blue
+            ann.append(annTemp)
+        }
+        
+        
+        return ann
+    }
+}

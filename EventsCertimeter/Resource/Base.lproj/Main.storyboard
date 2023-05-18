@@ -94,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kDa-xR-BL6">
-                                <rect key="frame" x="15" y="79" width="363" height="119.33333333333331"/>
+                                <rect key="frame" x="15" y="79" width="363" height="139"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5ja-Yj-eyl">
                                         <rect key="frame" x="0.0" y="0.0" width="363" height="34.333333333333336"/>
@@ -105,7 +105,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="YGB-FJ-Otw">
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="YGB-FJ-Otw">
                                                 <rect key="frame" x="10" y="0.0" width="294" height="34.333333333333336"/>
                                                 <locale key="locale" localeIdentifier="it"/>
                                                 <connections>
@@ -121,17 +121,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" id="40l-B4-2Io">
-                                        <rect key="frame" x="0.0" y="44.333333333333336" width="363" height="31.000000000000007"/>
+                                        <rect key="frame" x="0.0" y="44.333333333333336" width="363" height="20.333333333333336"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I Miei Eventi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeA-kQ-y4Z">
-                                                <rect key="frame" x="0.0" y="0.0" width="304" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="304" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="asfasddvs" translatesAutoresizingMaskIntoConstraints="NO" id="xPA-cn-zPf">
-                                                <rect key="frame" x="314" y="0.0" width="51" height="31"/>
+                                                <rect key="frame" x="314" y="0.0" width="51" height="20.333333333333332"/>
                                                 <connections>
                                                     <action selector="filtraIMieiEventiToggle:" destination="TQb-b8-SvQ" eventType="valueChanged" id="YYh-XB-HtT"/>
                                                 </connections>
@@ -139,8 +139,28 @@
                                         </subviews>
                                         <viewLayoutGuide key="safeArea" id="gqK-6d-emk"/>
                                     </stackView>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Prezzo" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cOM-v4-FAK">
-                                        <rect key="frame" x="0.0" y="85.333333333333343" width="363" height="34"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" id="Cbg-On-IaC">
+                                        <rect key="frame" x="0.0" y="74.666666666666671" width="363" height="20.333333333333329"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altri Eventi " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2L-m4-p77">
+                                                <rect key="frame" x="0.0" y="0.0" width="304" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="asfasddvs" translatesAutoresizingMaskIntoConstraints="NO" id="y4k-ZR-dU4">
+                                                <rect key="frame" x="314" y="0.0" width="51" height="20.333333333333332"/>
+                                                <connections>
+                                                    <action selector="filtraAltriEventiToggle:" destination="TQb-b8-SvQ" eventType="valueChanged" id="hoj-LL-SON"/>
+                                                    <action selector="filtraIMieiEventiToggle:" destination="TQb-b8-SvQ" eventType="valueChanged" id="te6-Ec-kvs"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                        <viewLayoutGuide key="safeArea" id="FaQ-Od-BZ7"/>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Prezzo" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cOM-v4-FAK">
+                                        <rect key="frame" x="0.0" y="105" width="363" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         <connections>
@@ -174,6 +194,13 @@
                     <navigationItem key="navigationItem" title="Filtra" id="YEq-pc-fZR">
                         <barButtonItem key="backBarButtonItem" title="Indietro" id="jBQ-Mu-wDM"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="altriEventiToggle" destination="y4k-ZR-dU4" id="9pA-HI-ndK"/>
+                        <outlet property="dataPicker" destination="YGB-FJ-Otw" id="C3Q-el-9vd"/>
+                        <outlet property="dataToggle" destination="RsM-Yj-VdG" id="GNQ-OM-db4"/>
+                        <outlet property="iMieiEventiToggle" destination="xPA-cn-zPf" id="Q64-h1-jGS"/>
+                        <outlet property="prezzoTextField" destination="cOM-v4-FAK" id="Vu6-Md-Tp1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZpE-Zi-wBc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

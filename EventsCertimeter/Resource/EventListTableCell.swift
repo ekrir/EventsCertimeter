@@ -15,7 +15,7 @@ class EventListTableCell: UITableViewCell{
     
     func configure(_ evento: Evento){
         eventNameLabel.text = evento.nomeEvento
-        eventInformationLabel.text = (evento.luogo ?? "informazione non disponibile") + " " + (evento.dataInizio?.formatted(date: .abbreviated, time: .omitted) ?? "")
+        eventInformationLabel.text = (evento.luogo ?? "informazione non disponibile") + " " + evento.dataInizio.formatted(date: .abbreviated, time: .omitted) 
     }
     
     

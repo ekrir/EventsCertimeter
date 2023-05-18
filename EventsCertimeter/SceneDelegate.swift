@@ -80,7 +80,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let evento1 = Evento(context: context)
         evento1.nomeEvento = "Sconti dal doc"
         evento1.dataInizio = Date().mezzanotte
-        evento1.dataFine = Calendar.current.date(byAdding: .day, value: 1, to: Date().mezzanotte)
+        evento1.dataFine = Calendar.current.date(byAdding: .day, value: 1, to: Date().mezzanotte) ?? Date().mezzanotte
         evento1.descrizione = "solo per oggi sconti dal doc"
         evento1.luogo = "via aaa 27"
         evento1.prezzo = 5.00
@@ -90,8 +90,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let evento2 = Evento(context: context)
         evento2.nomeEvento = "cinema con gli amici"
-        evento2.dataInizio = Calendar.current.date(byAdding: .hour, value: 20, to: Date().mezzanotte)
-        evento2.dataFine = Calendar.current.date(byAdding: .hour, value: 23, to: Date().mezzanotte)
+        evento2.dataInizio = Calendar.current.date(byAdding: .hour, value: 20, to: Date().mezzanotte) ?? Date().mezzanotte
+        evento2.dataFine = Calendar.current.date(byAdding: .hour, value: 23, to: Date().mezzanotte) ?? Date().mezzanotte
         evento2.descrizione = "solo per oggi sconti dal doc"
         evento2.luogo = "via bbb 42"
         evento2.prezzo = 11.00

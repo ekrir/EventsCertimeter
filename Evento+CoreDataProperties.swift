@@ -23,8 +23,8 @@ extension Evento {
         return request
     }
 
-    @NSManaged public var dataFine: Date?
-    @NSManaged public var dataInizio: Date?
+    @NSManaged public var dataFine: Date
+    @NSManaged public var dataInizio: Date
     @NSManaged public var descrizione: String?
     @NSManaged public var latitudine: Double
     @NSManaged public var longitudine: Double

@@ -3,4 +3,54 @@
    uuid = "C8185A0C-1843-4AB0-A952-6222182EB193"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "15EB7877-2A14-49CD-B0CE-296E3925BA10"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EventsCertimeter/View/FiltraView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "15EB7877-2A14-49CD-B0CE-296E3925BA10 - a34bb8abbda50d5b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EventsCertimeter.FiltraView.viewDidLoad() -&gt; ()"
+                  moduleName = "EventsCertimeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/micheldipietro/Desktop/esercizi%20vari/git/EventsCertimeter/EventsCertimeter/View/FiltraView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "396">
+               </Location>
+               <Location
+                  uuid = "15EB7877-2A14-49CD-B0CE-296E3925BA10 - a34bb8abbda50d5b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EventsCertimeter.FiltraView.viewDidLoad() -&gt; ()"
+                  moduleName = "EventsCertimeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/micheldipietro/Desktop/esercizi%20vari/git/EventsCertimeter/EventsCertimeter/View/FiltraView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "464">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -40,14 +40,20 @@ class MappaTabView: UIViewController {
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
-
+        
         mappaView.showsUserLocation = true
         mappaView.userTrackingMode = .follow
         mappaView.delegate = self
         
-            mappaView.addAnnotations(listaAnnotazioni)
+        mappaView.addAnnotations(listaAnnotazioni)
         
-        
+    }
+    
+    func aggiornaAnnotazioni(annotations: [MyPointAnnotation]){
+        mappaView.removeAnnotations(listaAnnotazioni)
+        listaAnnotazioni = annotations
+        mappaView.addAnnotations(listaAnnotazioni)
+        self.reloadInputViews()
     }
     
     @IBAction func tapOnFiltra(_ sender: Any) {
