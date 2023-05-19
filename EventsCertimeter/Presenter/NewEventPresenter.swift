@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 import CoreData
+import MapKit
+
 protocol NewEventPresenterDelegate{
     func inRitornoDaNuovoEvento()
 }
@@ -21,12 +23,13 @@ class NewEventPresenter{
     }()
     
     var navigationDelegate: NewEventPresenterDelegate?
-    
+    private var compilaNuovoEventoViewController = CompilaNuovoEvento()
     
     
     func start(navcontroller: UINavigationController){
         let vc = storyboard.instantiateViewController(withIdentifier: "CompilaNuovoEvento") as? CompilaNuovoEvento
         vc?.delegate = self
+        compilaNuovoEventoViewController = vc ?? CompilaNuovoEvento()
         navcontroller.pushViewController(vc ?? UIViewController(), animated: true)
     }
 }
@@ -40,6 +43,7 @@ extension NewEventPresenter: CompilaNuovoEventoDelegate{
     
     func didTapOnCercaPosizione(_ navController: UINavigationController) {
         let vc = storyboard.instantiateViewController(withIdentifier: "SelezionaPosizioneView") as? SelezionaPosizioneView
+        vc?.selezionaDelegate = self
         navController.pushViewController(vc ?? UIViewController(), animated: true)
         print(vc != nil )
     }
@@ -50,7 +54,7 @@ extension NewEventPresenter: CompilaNuovoEventoDelegate{
         var context = PersistenceController.shared.container.viewContext
         // faccio una prova per mettere sotto stress il db
         
-        for i in 0...50 {
+        for i in 0...500 {
             let newEvento = Evento(context: context)
             newEvento.nomeEvento = "evento \(i)"
             newEvento.dataInizio = Calendar.current.date(byAdding: .day, value: i, to: Date().mezzanotte) ?? Date()
@@ -61,13 +65,13 @@ extension NewEventPresenter: CompilaNuovoEventoDelegate{
             newEvento.descrizione = "solo per oggi sconti dal doc"
             newEvento.prezzo = 5.00
             newEvento.visibile = true
-            do{
-                try context.save()
-            }catch{
-                print("errore a \(i)")
+            DispatchQueue.main.async {
+                do{
+                    try context.save()
+                }catch{
+                    print("errore a \(i)")
+                }
             }
-            
-            
         }
         navigationDelegate?.inRitornoDaNuovoEvento()
     }
@@ -88,3 +92,20 @@ extension NewEventPresenter: CompilaNuovoEventoDelegate{
     }
 }
 
+extension NewEventPresenter: SelezionaPosizioneViewDelegate{
+    func didTapOnSeleziona(location: CLLocationCoordinate2D) {
+        let location2 = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        let geoCoder = CLGeocoder()
+        geoCoder.reverseGeocodeLocation(location2, completionHandler: { placemarks, error in
+            let placemark = placemarks?.first
+            var description = ""
+
+            description = (placemark?.thoroughfare ?? "-") + " "
+            description = description + (placemark?.subThoroughfare ?? "-")
+            description = description + ", " + (placemark?.locality ?? "-")
+            self.compilaNuovoEventoViewController.setValueForLocation(descrizione: description)
+
+        })
+
+    }
+}

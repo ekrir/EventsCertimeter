@@ -283,9 +283,12 @@
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jR0-w0-SjZ">
-                                <rect key="frame" x="159" y="753" width="75" height="35"/>
+                                <rect key="frame" x="147.66666666666666" y="753" width="97.666666666666657" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button" cornerStyle="capsule"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Seleziona" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="tapOnSeleziona:" destination="APp-TM-EYs" eventType="touchUpInside" id="ORE-Kw-tdZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wQk-HD-yf3"/>
@@ -300,6 +303,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pHI-HP-icb"/>
+                    <connections>
+                        <outlet property="mapView" destination="9pC-iW-otX" id="Rns-0K-K5B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WY5-7f-WhJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreLocation
+
 protocol CompilaNuovoEventoDelegate{
     func didTapOnSalva()
     func didTapOnQRCode(_ navController: UINavigationController)
@@ -28,7 +30,7 @@ class CompilaNuovoEvento: UIViewController {
     
     var delegate: CompilaNuovoEventoDelegate?
     
-
+    private var location: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +94,10 @@ class CompilaNuovoEvento: UIViewController {
     func setValueForDataInizio(_ dataInizio: String){
     }
 
+    func setValueForLocation(descrizione: String){
+        luogoTextField.text = descrizione
+        self.reloadInputViews()
+    }
 }
 
 extension CompilaNuovoEvento: UITextViewDelegate{
