@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 protocol EventListViewDelegate{
     func didTapOnNewEvent(navController: UINavigationController)
+    func didTapOnSingleEvent(navController: UINavigationController, sezione: Int, cella: Int)
 }
 class EventListView: UIViewController{
     
@@ -72,5 +73,13 @@ extension EventListView: UITableViewDelegate, UITableViewDataSource {
             return ""
         }
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didTapOnSingleEvent(navController: self.navigationController ?? UINavigationController(), sezione: indexPath.section, cella: indexPath.row)
+    }
     
+    func aggiornaListaEventi(iMieiEventi: [Evento], altriEventi: [Evento]){
+        myEvents = iMieiEventi
+        otherEvents = altriEventi
+        EventsTableView.reloadData()
+    }
 }

@@ -7,6 +7,11 @@
 
 import Foundation
 import UIKit
+import CoreData
+protocol NewEventPresenterDelegate{
+    func inRitornoDaNuovoEvento()
+}
+
 class NewEventPresenter{
     let storyboard = UIStoryboard(name: "NewEvent", bundle: nil)
     let dateFormatter = {
@@ -14,6 +19,8 @@ class NewEventPresenter{
         f.dateFormat = "dd.MM.AAAA hh.mm"
         return f
     }()
+    
+    var navigationDelegate: NewEventPresenterDelegate?
     
     
     
@@ -38,6 +45,31 @@ extension NewEventPresenter: CompilaNuovoEventoDelegate{
     }
     
     func didTapOnSalva() {
+        //TODO: - spostare fuori nell'inizializzazione del tutto
+        
+        var context = PersistenceController.shared.container.viewContext
+        // faccio una prova per mettere sotto stress il db
+        
+        for i in 0...50 {
+            let newEvento = Evento(context: context)
+            newEvento.nomeEvento = "evento \(i)"
+            newEvento.dataInizio = Calendar.current.date(byAdding: .day, value: i, to: Date().mezzanotte) ?? Date()
+            newEvento.dataFine = Calendar.current.date(bySetting: .day, value: i + 1, of: Date()) ?? Date()
+            newEvento.latitudine = 45.088600 + (Double(i) * 0.001)
+            newEvento.longitudine = 7.658611 + (Double(i) * 0.001)
+            newEvento.luogo = "via test \(i + 1)"
+            newEvento.descrizione = "solo per oggi sconti dal doc"
+            newEvento.prezzo = 5.00
+            newEvento.visibile = true
+            do{
+                try context.save()
+            }catch{
+                print("errore a \(i)")
+            }
+            
+            
+        }
+        navigationDelegate?.inRitornoDaNuovoEvento()
     }
     
     func didTapOnSelezionaDataInizio(_ viewController: UIViewController) {

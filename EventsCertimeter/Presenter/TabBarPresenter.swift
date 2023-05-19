@@ -125,6 +125,18 @@ class TabBarPresenter: NSObject {
         return ann
     }
     
+    func aggiornaViste(){
+        iMieiEventi = getMyEvent()
+        altriEventi = getOtherEvent().filter({value in
+            return value.visibile && !iMieiEventi.contains(where: {$0.id == value.id}) })
+        
+        guard let mappaView = mapViewController as? MappaTabView else {return}
+        mappaView.aggiornaAnnotazioni(annotations: getListaAnnotazioni(iMieiEventi: iMieiEventi, altriEventi: altriEventi))
+        
+        guard let listaView = tableViewControlelr as? EventListView else {return}
+        listaView.aggiornaListaEventi(iMieiEventi: iMieiEventi, altriEventi: altriEventi)
+    }
+    
 }
 
 extension TabBarPresenter: UITabBarControllerDelegate{
@@ -151,13 +163,25 @@ extension TabBarPresenter: MappaTabViewDelegate{
 
 //MARK: - delegati lista
 extension TabBarPresenter: EventListViewDelegate{
+    func didTapOnSingleEvent(navController: UINavigationController, sezione: Int, cella: Int) {
+        let vc = storyboard.instantiateViewController(identifier: "EventiPageViewController") as? EventiPageViewController
+        if sezione == 0 {
+            vc?.configre(eventi: iMieiEventi, index: cella, showPulsante: false)
+        }else{
+            vc?.configre(eventi: altriEventi, index: cella, showPulsante: true)
+        }
+        vc?.saveDelegate = self
+        navController.pushViewController(vc ?? UIViewController(), animated: true)
+    }
+    
     func didTapOnNewEvent(navController: UINavigationController) {
         let newEventPresenter = NewEventPresenter()
+        newEventPresenter.navigationDelegate = self
         newEventPresenter.start(navcontroller: navController)
     }
 }
 
-//MARK: - delegati filtr
+//MARK: - delegati filtro
 
 extension TabBarPresenter: FiltraViewDelegate{
     func didTapOnApplica() {
@@ -194,7 +218,7 @@ extension TabBarPresenter: FiltraViewDelegate{
     func getListaAnnotazioni(iMieiEventi: [Evento], altriEventi: [Evento]) -> [MyPointAnnotation] {
         var ann: [MyPointAnnotation] = []
         for value in iMieiEventi{
-            var annTemp = MyPointAnnotation( evento: value)
+            let annTemp = MyPointAnnotation( evento: value)
             annTemp.coordinate = CLLocationCoordinate2D(latitude: value.latitudine, longitude: value.longitudine)
             annTemp.title = value.nomeEvento
             annTemp.pinTintColor = .green
@@ -202,7 +226,7 @@ extension TabBarPresenter: FiltraViewDelegate{
         }
         
         for value in altriEventi{
-            var annTemp = MyPointAnnotation( evento: value)
+            let annTemp = MyPointAnnotation( evento: value)
             annTemp.coordinate = CLLocationCoordinate2D(latitude: value.latitudine, longitude: value.longitudine)
             annTemp.title = value.nomeEvento
             annTemp.pinTintColor = .blue
@@ -212,4 +236,45 @@ extension TabBarPresenter: FiltraViewDelegate{
         
         return ann
     }
+}
+
+
+//MARK: - pageView delegate
+
+extension TabBarPresenter: EventiPageViewControllerDelegate{
+    
+    func tapApplicaEvento(evento: Evento) {
+        
+        var fetchRequestEventFromPerona: NSFetchRequest<Persona>
+        fetchRequestEventFromPerona = Persona.fetchRequest()
+        fetchRequestEventFromPerona.predicate = NSPredicate(format: "nomeCompleto == %@", "Gianluca Ferrosi")
+        let persona = try? context.fetch(fetchRequestEventFromPerona)
+        let firstPersona = persona?.first
+        
+        firstPersona?.insertIntoToEvento(evento, at: firstPersona?.toEvento?.count ?? 0)
+//        var listaNuova = firstPersona?.toEvento as? [Evento]
+//        listaNuova?.append(evento)
+//
+//        firstPersona?.setValue(listaNuova, forKey: "toEvento")
+        
+        do {
+//            context.perform {
+                try context.save()
+//            }
+        }catch{
+            print("salvataggio fallito in tab bar coordinator")
+        }
+        
+        aggiornaViste()
+    }
+}
+
+//MARK: - delegati nuovo evento presenter
+
+extension TabBarPresenter: NewEventPresenterDelegate{
+    func inRitornoDaNuovoEvento() {
+        aggiornaViste()
+    }
+    
+    
 }

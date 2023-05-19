@@ -39,6 +39,7 @@ class CompilaNuovoEvento: UIViewController {
     
     @IBAction func tapOnSalva(_ sender: Any) {
         delegate?.didTapOnSalva()
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func tapOnQRCode(_ sender: Any) {
         delegate?.didTapOnQRCode(self.navigationController ?? UINavigationController())

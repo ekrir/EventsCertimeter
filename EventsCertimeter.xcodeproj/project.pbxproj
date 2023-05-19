@@ -37,6 +37,8 @@
 		CAC1AE5D2A0E7A1E001A13C9 /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE5C2A0E7A1E001A13C9 /* TabBarPresenter.swift */; };
 		CAC1AE5F2A0E9183001A13C9 /* testVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE5E2A0E9183001A13C9 /* testVC.swift */; };
 		CAC1AE612A0E9639001A13C9 /* MappaTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1AE602A0E9639001A13C9 /* MappaTabView.swift */; };
+		CAC4B84D2A164C02007FE546 /* EventiPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC4B84C2A164C02007FE546 /* EventiPageViewController.swift */; };
+		CAC4B84F2A164C36007FE546 /* SingoloEventoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC4B84E2A164C36007FE546 /* SingoloEventoPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		CAC1AE5C2A0E7A1E001A13C9 /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		CAC1AE5E2A0E9183001A13C9 /* testVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVC.swift; sourceTree = "<group>"; };
 		CAC1AE602A0E9639001A13C9 /* MappaTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappaTabView.swift; sourceTree = "<group>"; };
+		CAC4B84C2A164C02007FE546 /* EventiPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiPageViewController.swift; sourceTree = "<group>"; };
+		CAC4B84E2A164C36007FE546 /* SingoloEventoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingoloEventoPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,8 @@
 				CABDEAF02A123FAE00E36271 /* SelezionaDataView.swift */,
 				CABDEAF22A125A1500E36271 /* SelezionaPosizioneView.swift */,
 				CABDEAF42A125F5200E36271 /* QRCodeScannerView.swift */,
+				CAC4B84C2A164C02007FE546 /* EventiPageViewController.swift */,
+				CAC4B84E2A164C36007FE546 /* SingoloEventoPageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAC4B84F2A164C36007FE546 /* SingoloEventoPageViewController.swift in Sources */,
 				CAC1AE212A0E210E001A13C9 /* ViewController.swift in Sources */,
 				CAC1AE552A0E7390001A13C9 /* EventListView.swift in Sources */,
 				CAC1AE5B2A0E79D1001A13C9 /* TabBarView.swift in Sources */,
@@ -355,6 +362,7 @@
 				CABDEAF32A125A1500E36271 /* SelezionaPosizioneView.swift in Sources */,
 				CABDEAF52A125F5200E36271 /* QRCodeScannerView.swift in Sources */,
 				CAC1AE612A0E9639001A13C9 /* MappaTabView.swift in Sources */,
+				CAC4B84D2A164C02007FE546 /* EventiPageViewController.swift in Sources */,
 				CAB4C8EE2A13782D00EE4D48 /* Persona+CoreDataProperties.swift in Sources */,
 				CA3AF8312A1394C40036BD5E /* Extensions.swift in Sources */,
 				CABDEAEF2A12275A00E36271 /* CompilaNuovoEvento.swift in Sources */,

@@ -17,6 +17,12 @@ class FiltraView: UIViewController {
     @IBOutlet weak var iMieiEventiToggle: UISwitch!
     @IBOutlet weak var dataToggle: UISwitch!
     @IBOutlet weak var dataPicker: UIDatePicker!
+    let backButton = {
+        var button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("fine", for: .normal)
+        return button
+    }()
     var delegate: FiltraViewDelegate?
     
     var filtraClass = Filtra.shared
@@ -24,10 +30,13 @@ class FiltraView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prezzoTextField.returnKeyType = .done
+        //TODO: - aggiungere il back button alla tastiera
+        prezzoTextField.inputAccessoryView = backButton
         if let prezzo = filtraClass.prezzo{
             self.prezzoTextField.text = String(prezzo)
+        }else {
+            self.prezzoTextField.text = nil
         }
-        self.prezzoTextField.text = nil
         self.altriEventiToggle.isOn = filtraClass.altriEventiToggle
         self.dataToggle.isOn = filtraClass.dataToggleisActive
         self.iMieiEventiToggle.isOn = filtraClass.iMieiEventiToggle

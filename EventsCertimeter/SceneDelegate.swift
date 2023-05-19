@@ -99,6 +99,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         evento2.latitudine = 45.087011
         evento2.longitudine = 7.667893
         
+        let evento3 = Evento(context: context)
+        evento3.nomeEvento = "mc friday"
+        evento3.dataInizio = Date().mezzanotte
+        evento3.dataFine = Calendar.current.date(byAdding: .day, value: 1, to: Date().mezzanotte) ?? Date().mezzanotte
+        evento3.descrizione = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        evento3.luogo = "via ccc 94"
+        evento3.prezzo = 5.00
+        evento3.visibile = true
+        evento3.latitudine = 45.087721
+        evento3.longitudine = 7.657611
+        
         let persona1 = Persona(context: context)
         persona1.nomeCompleto = "Gianluca Ferrosi"
         persona1.toEvento = [evento2]
