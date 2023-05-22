@@ -13,7 +13,7 @@
         <relationship name="fromPersona" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Persona" inverseName="toEvento" inverseEntity="Persona"/>
     </entity>
     <entity name="Persona" representedClassName="Persona" syncable="YES">
-        <attribute name="eta" attributeType="String"/>
+        <attribute name="eta" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="nomeCompleto" attributeType="String"/>
         <relationship name="fromPersona" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Persona" inverseName="toPersona" inverseEntity="Persona"/>
         <relationship name="toEvento" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Evento" inverseName="fromPersona" inverseEntity="Evento"/>

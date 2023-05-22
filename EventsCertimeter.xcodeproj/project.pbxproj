@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CA3AF82F2A137D650036BD5E /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3AF82E2A137D650036BD5E /* Persistance.swift */; };
 		CA3AF8312A1394C40036BD5E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3AF8302A1394C40036BD5E /* Extensions.swift */; };
+		CA6796C22A1B655B009346AB /* PersonaMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6796C12A1B655B009346AB /* PersonaMapping.swift */; };
+		CA6796C42A1B672A009346AB /* v1-2 mapping Model .xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = CA6796C32A1B672A009346AB /* v1-2 mapping Model .xcmappingmodel */; };
 		CAB4C8EB2A13782D00EE4D48 /* Evento+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4C8E72A13782D00EE4D48 /* Evento+CoreDataClass.swift */; };
 		CAB4C8EC2A13782D00EE4D48 /* Evento+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4C8E82A13782D00EE4D48 /* Evento+CoreDataProperties.swift */; };
 		CAB4C8ED2A13782D00EE4D48 /* Persona+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4C8E92A13782D00EE4D48 /* Persona+CoreDataClass.swift */; };
@@ -61,6 +63,9 @@
 /* Begin PBXFileReference section */
 		CA3AF82E2A137D650036BD5E /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		CA3AF8302A1394C40036BD5E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CA6796C02A1B64AA009346AB /* EventsCertimeter 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EventsCertimeter 2.xcdatamodel"; sourceTree = "<group>"; };
+		CA6796C12A1B655B009346AB /* PersonaMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonaMapping.swift; sourceTree = "<group>"; };
+		CA6796C32A1B672A009346AB /* v1-2 mapping Model .xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "v1-2 mapping Model .xcmappingmodel"; sourceTree = "<group>"; };
 		CAB4C8E72A13782D00EE4D48 /* Evento+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Evento+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CAB4C8E82A13782D00EE4D48 /* Evento+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Evento+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CAB4C8E92A13782D00EE4D48 /* Persona+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persona+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -125,6 +130,8 @@
 		CAC1AE102A0E210E001A13C9 = {
 			isa = PBXGroup;
 			children = (
+				CA6796C12A1B655B009346AB /* PersonaMapping.swift */,
+				CA6796C32A1B672A009346AB /* v1-2 mapping Model .xcmappingmodel */,
 				CA3AF8302A1394C40036BD5E /* Extensions.swift */,
 				CA3AF82E2A137D650036BD5E /* Persistance.swift */,
 				CAB4C8E72A13782D00EE4D48 /* Evento+CoreDataClass.swift */,
@@ -369,10 +376,12 @@
 				CAC1AE532A0E6D33001A13C9 /* EventListTableCell.swift in Sources */,
 				CABDEAEB2A12223C00E36271 /* NewEventPresenter.swift in Sources */,
 				CAB4C8EC2A13782D00EE4D48 /* Evento+CoreDataProperties.swift in Sources */,
+				CA6796C22A1B655B009346AB /* PersonaMapping.swift in Sources */,
 				CAC1AE5F2A0E9183001A13C9 /* testVC.swift in Sources */,
 				CA3AF82F2A137D650036BD5E /* Persistance.swift in Sources */,
 				CABDEAE92A121A8C00E36271 /* FiltraView.swift in Sources */,
 				CAC1AE272A0E210E001A13C9 /* EventsCertimeter.xcdatamodeld in Sources */,
+				CA6796C42A1B672A009346AB /* v1-2 mapping Model .xcmappingmodel in Sources */,
 				CAB4C8EB2A13782D00EE4D48 /* Evento+CoreDataClass.swift in Sources */,
 				CAC1AE1F2A0E210E001A13C9 /* SceneDelegate.swift in Sources */,
 				CAC1AE5D2A0E7A1E001A13C9 /* TabBarPresenter.swift in Sources */,
@@ -723,9 +732,10 @@
 		CAC1AE252A0E210E001A13C9 /* EventsCertimeter.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CA6796C02A1B64AA009346AB /* EventsCertimeter 2.xcdatamodel */,
 				CAC1AE262A0E210E001A13C9 /* EventsCertimeter.xcdatamodel */,
 			);
-			currentVersion = CAC1AE262A0E210E001A13C9 /* EventsCertimeter.xcdatamodel */;
+			currentVersion = CA6796C02A1B64AA009346AB /* EventsCertimeter 2.xcdatamodel */;
 			path = EventsCertimeter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

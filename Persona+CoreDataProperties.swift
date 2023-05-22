@@ -24,7 +24,8 @@ extension Persona {
         return request
     }
 
-    @NSManaged public var nomeCompleto: String?
+    @NSManaged public var nomeCompleto: String
+    @NSManaged public var eta: Int
     @NSManaged public var toEvento: NSOrderedSet?
     @NSManaged public var toPersona: NSOrderedSet?
     @NSManaged public var fromPersona: NSOrderedSet?

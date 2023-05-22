@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let win = UIWindow(windowScene: windowScene)
-        mockDati()
+//        mockDati()
         self.window = win
         let tabBarP = TabBarPresenter()
         tabBarP.start(win)
@@ -113,9 +113,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let persona1 = Persona(context: context)
         persona1.nomeCompleto = "Gianluca Ferrosi"
         persona1.toEvento = [evento2]
+//        persona1.eta = "23"
         
         let persona2 = Persona(context: context)
         persona2.nomeCompleto = "Pietro Nuset"
+//        persona2.eta = "56"
         
         try? context.save()
     }
